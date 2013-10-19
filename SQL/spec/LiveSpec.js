@@ -21,7 +21,7 @@ describe("Persistent Node Chat Server", function() {
 
     /* Empty the db table before each test so that multiple tests
      * (or repeated runs of the tests) won't screw each other up: */
-    //dbConnection.query("DELETE FROM " + tablename, done);
+    // dbConnection.query("DELETE FROM " + tablename, done);
   });
 
   afterEach(function() {
@@ -40,13 +40,14 @@ describe("Persistent Node Chat Server", function() {
                * posted message there. */
 
               var queryString = "SELECT * FROM Messages INNER JOIN Users ON Messages.userId = Users.userId";
-              var queryArgs = [];
+              // var queryArgs = [];
               /* TODO: Change the above queryString & queryArgs to match your schema design
                * The exact query string and query args to use
                * here depend on the schema you design, so I'll leave
                * them up to you. */
-              dbConnection.query( queryString, queryArgs,
+              dbConnection.query( queryString,
                 function(err, results, fields) {
+                  console.log(results);
                   // Should have one result:
                   expect(results.length).toEqual(1);
                   expect(results[0].username).toEqual("Valjean");

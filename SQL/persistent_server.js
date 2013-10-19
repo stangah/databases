@@ -2,7 +2,7 @@ var mysql = require('mysql');
 var http = require("http");
 var url = require("url");
 var fs = require("fs");
-var messageHandler = require("../chatterbox-server/server/request-handler");
+var messageHandler = require("./request-handler");
 
 var port = 8080;
 
@@ -22,6 +22,21 @@ var dbConnection = mysql.createConnection({
   // password: "",
   database: "chatterbox"
 });
+
+// var queryString = "SELECT * FROM Messages INNER JOIN Users ON Messages.userId = Users.userId";
+// var queryArgs = [];
+
+// dbConnection.query( queryString, queryArgs,
+//   function(err, results, fields) {
+//     if (err) console.log(err);
+//     console.log(results);
+// });
+
+// dbConnection.query( "SELECT userId FROM Users WHERE users.username = ?", ['anon'],
+//   function(err, results, fields) {
+//     if (err) console.log(err);
+//     console.log(results);
+// });
 
 dbConnection.connect();
 /* Now you can make queries to the Mysql database using the

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>chatterbox</title>
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <!-- external javascript -->
+    <script src="./bower_components/jquery/jquery.min.js"></script>
+    <script src="./bower_components/underscore/underscore-min.js"></script>
+    <script src="./bower_components/backbone/backbone-min.js"></script>
+    <script src="./bower_components/moment/min/moment.min.js"></script>
+
+    <!-- internal javascript -->
+    <script src="scripts/config.js"></script>
+    <script src="scripts/app.js"></script>
+  </head>
+  <body>
+
+    <div id="main">
+      <script type="text/template" id="receivedMessage">
+      <% _.each(messages, function(message){ %>
+        <% var roomname = message.get('roomname'); %>
+        <% var text = message.get('text'); %>
+        <% var username = message.get('username'); %>
+          <span <%= (friends[username] ? 'class="friend"' : '')%>>[<%= roomname %>] <%= username %>: <%- text %> - <%= moment(message.get('createdAt')).startOf('minute').fromNow() %></span><br />
+
+          <% // ADD USERS TO USER WINDOW %>
+          <% if(!users[username]){ %>
+            <% $('.users').append('<span class="username">' + username + '</span><br />'); %>
+            <% users[username] = true; %>
+          <% } %>
+
+          <% // ADD ROOMS TO ROOM LIST %>
+          <% if(rooms[roomname] === undefined){ %>
+            <% $('.rooms').append('<span class="room">' + roomname + '</span><br />'); %>
+            <% rooms[roomname] = false; %>
+            <% $(".roomSelect").append('<option>' + roomname + '</option>'); %>
+          <% } %>
+        <% }); %>
+      </script>
+
+      <h1>chatter<span>box</span><sub class="subscript">by collenJONES</sub></h1>
+
+      <aside>
+        <div class="users">
+        </div>
+        <div class="rooms">
+          <span class="room">lobby</span><br />
+        </div>
+      </aside>
+
+      <section class="input">
+        <select class="roomSelect" selected="lobby">
+          <option>lobby</option>
+        </select>
+        <input type="text" class="message">
+        </input>
+        <button id="submit">Submit</button>
+      </section>
+      <section class="messages">
+      </section >
+
+    </div>
+  </body>
+</html>

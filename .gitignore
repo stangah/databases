@@ -1,6 +1,7 @@
 # Compiled source #
 ###################
 node_modules/*
+Client/bower_components/*
 *.com
 *.class
 *.dll

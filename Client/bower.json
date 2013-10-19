@@ -1,0 +1,16 @@
+{
+  "name": "ChatterBox Server",
+  "version": "0.0.1",
+  "homepage": "https://github.com/collenjones/2013-09-chatterbox-server",
+  "authors": [
+    "Collen Jones <collenjones@gmail.com>"
+  ],
+  "description": "Node.js Server for ChatterBox client",
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "~1.5.2",
+    "backbone": "~1.1.0",
+    "jquery": "~2.0.3",
+    "moment": "~2.3.1"
+  }
+}

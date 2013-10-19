@@ -1,0 +1,143 @@
+aside {
+  float:left;
+  width:15%;
+}
+
+body {
+  background: aliceblue; /* #eee; */
+  height: 100%;
+  text-align: center;
+  padding: 0 25px;
+}
+
+h1 span{
+  font-style: italic;
+  color: rgba(10,60,150, 0.8);
+  text-shadow: 1px 4px 6px #def, 0 0 0 #000, 1px 4px 6px #def;
+}
+
+#main {
+  float: left;
+  font-family: Helvetica;
+  margin: auto;
+  padding: 50px 60px;
+  text-align: left;
+  width: 100%;
+}
+
+#main h1 {
+  font-size: 35px;
+  margin-top: 0;
+  margin-bottom: 1%;
+}
+
+#submit {
+  background: moccasin;
+  border: 1px solid gray;
+  border-radius: 5px;
+  color: navy;
+  float: left;
+  font-size: 1.1em;
+  font-weight: bold;
+  height: 90%;
+  margin-left: 0.3%;
+  margin-top: 0.3%;
+  width: 13.5%;
+}
+
+#submit:hover {
+  background: darksalmon;
+  color: azure;
+}
+
+.friend {
+  font-weight: bold;
+}
+
+.input {
+  background: white;
+  border-top: 1px dashed gray;
+  border-right: 1px dashed gray;
+  border-bottom: 1px solid lightgray;
+  border-top-right-radius: 5px;
+  float: left;
+  height: 40px;
+  width: 70%;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.message {
+  border-radius: 5px;
+  border: 1px solid aqua;
+  float: left;
+  font-size: 18px;
+  height: 90%;
+  margin-left: 0.3%; 
+  margin-top: 0.3%;
+  padding: 0 1%;
+  width: 70%;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.messages {
+  background: white;
+  border-right: 1px dashed gray;
+  border-bottom: 1px dashed gray;
+  border-bottom-right-radius: 5px;
+  float:left;
+  height: 460px;
+  overflow:scroll;
+  padding: 1% 1%;
+  width: 70%;
+  word-wrap: break-word;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.users, .rooms {
+  background: white;
+  border-left: 1px dashed gray;
+  border-right: 1px solid lightgray;
+  height: 250px;
+  overflow: scroll;
+  width: 100%;
+  padding: 5% 5%;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.room, .username {
+  cursor:pointer;
+}
+
+.rooms {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px dashed gray;
+  border-bottom-left-radius: 5px;
+}
+
+.roomSelect {
+  float: left;
+  font-size: 1.1em;
+  height: 90%;
+  margin-top: 0.3%;
+  margin-left: 0.3%;
+  -webkit-appearance: menulist-button;
+  width: 15%;
+}
+
+.subscript {
+  font-size: 0.4em;
+  margin-left: 0.5%;
+}
+
+.users {
+  border-top: 1px dashed gray;
+  border-top-left-radius: 5px;
+}
