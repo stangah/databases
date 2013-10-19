@@ -49,8 +49,6 @@ exports.eventHandler = function(req, res) {
     case 'POST':
       collectData(req, function(data) {
         var message = JSON.parse(data);
-        console.log(message.username);
-
         dbConnection.query( "SELECT userId FROM Users WHERE username = ?", [message.username],
           function(err, results, fields) {
             if (err) console.log(err);
