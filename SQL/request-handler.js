@@ -51,22 +51,21 @@ exports.eventHandler = function(req, res) {
         var message = JSON.parse(data);
         console.log(message.username);
 
-        dbConnection.query( "SELECT userId FROM users WHERE username = ?", [message.username],
+        dbConnection.query( "SELECT userId FROM Users WHERE username = ?", [message.username],
           function(err, results, fields) {
             if (err) console.log(err);
-            if (results === undefined) {
+            if (results.length === 0) {
               dbConnection.query( "INSERT INTO Users (username) values (?)", [message.username],
                 function(err, results, fields) {
                   var timeStamp = new Date().getTime();
-                  console.log(results.insertId);
-                  dbConnection.query( "INSERT INTO Messages (text, roomname, userId, timestamp) values (?, ?, ?, ?)", [message.text, message.roomname, results[0].insertId, timeStamp],
+                  dbConnection.query( "INSERT INTO Messages (text, roomname, userId, timestamp) values (?, ?, ?, ?)", [message.text, message.roomname || 'lobby', results.insertId, timeStamp],
                     function(err, results, fields) {
                       if (err) console.log(err);
                   });
               });
             } else {
               var timeStamp = new Date().getTime();
-              dbConnection.query( "INSERT INTO Messages (text, roomname, userId, timestamp) values (?, ?, ?, ?)", [message.text, message.roomname, results[0].userId, timeStamp],
+              dbConnection.query( "INSERT INTO Messages (text, roomname, userId, timestamp) values (?, ?, ?, ?)", [message.text, message.roomname || 'lobby', results[0].userId, timeStamp],
                 function(err, results, fields) {
                   if (err) console.log(err);
               });
